@@ -24,11 +24,13 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnSelectClick(Sender: TObject);
     procedure dbgUsersDblClick(Sender: TObject);
+    procedure CheckBox1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     procedure ViewUserList;
     procedure DeleteUser;
     procedure AddUser;
-    //procedure SelectUser;
+    procedure SelectUser(ID:Integer);
   public
 
   end;
@@ -40,7 +42,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDMUsers, ufmAddUser, ufmMain, uUser, uAdditionalUtils;
+uses uDMUsers, ufmAddUser, ufmMain, uUser, uAdditionalUtils, uSettings;
 
 procedure TfmUserList.AddUser;
 begin
@@ -67,12 +69,17 @@ end;
 
 procedure TfmUserList.btnSelectClick(Sender: TObject);
 begin
-  //SelectUser;
+  SelectUser(dbgUsers.DataSource.DataSet.FieldByName('id').AsInteger);
+end;
+
+procedure TfmUserList.CheckBox1Click(Sender: TObject);
+begin
+  GlobalOptions.IsRememberLastUser:=CheckBox1.Checked;
 end;
 
 procedure TfmUserList.dbgUsersDblClick(Sender: TObject);
 begin
-  //SelectUser;
+  SelectUser(dbgUsers.DataSource.DataSet.FieldByName('id').AsInteger);
 end;
 
 procedure TfmUserList.DeleteUser;
@@ -81,12 +88,27 @@ begin
   dmUsers.PerformUserList;
 end;
 
+procedure TfmUserList.FormCreate(Sender: TObject);
+begin
+  CheckBox1.Checked:=GlobalOptions.IsRememberLastUser;
+end;
+
 procedure TfmUserList.FormShow(Sender: TObject);
 begin
   ViewUserList;
+
+  if CurrentUser<>nil then
+  begin
+
+  end;
 end;
 
-
+procedure TfmUserList.SelectUser(ID:Integer);
+begin
+  dmUsers.SelectUser(ID);
+  fmMain.statusBarMain.Panels.Items[0].Text:='Пользователь: '+CurrentUser.UserDBFields.Name;
+  Close;
+end;
 
 procedure TfmUserList.ViewUserList;
 begin

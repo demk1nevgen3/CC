@@ -24,7 +24,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TdmMain, dmMain);
-  Application.CreateForm(TdmUsers, dmUsers);
-  Application.CreateForm(TDataModule1, DataModule1);
+ // Application.CreateForm(TdmUsers, dmUsers);
+  // Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
 end.

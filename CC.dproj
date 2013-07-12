@@ -78,8 +78,8 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_ExeOutput>C:\workspace\СС\bin</DCC_ExeOutput>
-        <DCC_DcuOutput>C:\workspace\СС\dcu</DCC_DcuOutput>
+        <DCC_ExeOutput>C:\NEW_WORKSPACE\GITHUB\CC\bin</DCC_ExeOutput>
+        <DCC_DcuOutput>C:\NEW_WORKSPACE\GITHUB\CC\dcu</DCC_DcuOutput>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
@@ -91,8 +91,8 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <DCC_DcuOutput>C:\workspace\СС\dcu</DCC_DcuOutput>
-        <DCC_ExeOutput>C:\workspace\СС\bin</DCC_ExeOutput>
+        <DCC_DcuOutput>C:\NEW_WORKSPACE\GITHUB\CC\dcu</DCC_DcuOutput>
+        <DCC_ExeOutput>C:\NEW_WORKSPACE\GITHUB\CC\bin</DCC_ExeOutput>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">

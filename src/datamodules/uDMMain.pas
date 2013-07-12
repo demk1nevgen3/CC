@@ -19,6 +19,7 @@ type
   private
     //создание новой локальной БД в случае ее отсутствия
     procedure CreateSchema;
+    procedure EnableOptions;
   public
     procedure Connect(DBFilePath:String);
   end;
@@ -30,27 +31,40 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses uConst, ufmMain, uSettings, ufmUserList;
+uses uConst, ufmMain, uSettings, ufmUserList, uDMUsers;
 
 {$R *.dfm}
 
 procedure TdmMain.Connect(DBFilePath:String);
 begin
+  EnableOptions;
 
   if not FileExists(DBFilePath) then
     CreateSchema;
   ADConnectionMain.Params.Add('Database='+DBFilePath);
   ADConnectionMain.Open;
   if ADConnectionMain.Connected then
-    if GlobalOptions.IsRememberLastUser then
-      Application.CreateForm(TfmMain, fmMain)
-    else
-      Application.CreateForm(TfmUserList, fmUserList);
+  begin
+    Application.CreateForm(TdmUsers, dmUsers);
+    Application.CreateForm(TfmMain, fmMain);
+
+  end;
+      {
+      if GlobalOptions.IsRememberLastUser then
+          begin
+            Application.CreateForm(TfmMain, fmMain)
+          end
+          else
+          begin
+           Application.CreateForm(TfmMain, fmMain);
+           Application.CreateForm(TfmUserList, fmUserList);
+          end;
+    }
 end;
 
 procedure TdmMain.CreateSchema;
 begin
-
+  //
 end;
 
 procedure TdmMain.DataModuleCreate(Sender: TObject);
@@ -59,5 +73,10 @@ begin
 end;
 
 
+
+procedure TdmMain.EnableOptions;
+begin
+  GlobalOptions:=TGlobalOptions.Create;
+end;
 
 end.

@@ -1,7 +1,7 @@
 object dmUsers: TdmUsers
   OldCreateOrder = False
-  Height = 150
-  Width = 215
+  Height = 202
+  Width = 348
   object qSelectAll: TADQuery
     OnCalcFields = qSelectAllCalcFields
     Connection = dmMain.ADConnectionMain
@@ -34,7 +34,6 @@ object dmUsers: TdmUsers
     object qSelectAllsystem_age: TDateTimeField
       FieldKind = fkCalculated
       FieldName = 'system_age'
-      OnGetText = qSelectAllsystem_ageGetText
       Calculated = True
     end
   end
@@ -98,6 +97,25 @@ object dmUsers: TdmUsers
     ParamData = <
       item
         Name = 'NAME'
+        ParamType = ptInput
+      end>
+  end
+  object qSelectUserByID: TADQuery
+    Connection = dmMain.ADConnectionMain
+    SQL.Strings = (
+      'SELECT'
+      '  *'
+      'FROM '
+      '  users'
+      'WHERE'
+      '  id=:id '
+      ''
+      '')
+    Left = 216
+    Top = 88
+    ParamData = <
+      item
+        Name = 'ID'
         ParamType = ptInput
       end>
   end

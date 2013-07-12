@@ -11,6 +11,7 @@ object fmUserList: TfmUserList
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -21,7 +22,6 @@ object fmUserList: TfmUserList
     Height = 222
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 386
     object dbgUsers: TDBGrid
       Left = 1
       Top = 1
@@ -83,8 +83,6 @@ object fmUserList: TfmUserList
     Height = 58
     Align = alBottom
     TabOrder = 1
-    ExplicitLeft = 1
-    ExplicitTop = 227
     object btnAdd: TBitBtn
       Left = 16
       Top = 5
@@ -246,6 +244,7 @@ object fmUserList: TfmUserList
       Height = 17
       Caption = #1042#1093#1086#1076#1080#1090#1100' '#1072#1074#1090#1086#1084#1072#1090#1080#1095#1077#1089#1082#1080
       TabOrder = 4
+      OnClick = CheckBox1Click
     end
   end
   object dsUsers: TDataSource

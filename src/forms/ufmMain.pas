@@ -55,7 +55,8 @@ implementation
 
 {$R *.dfm}
 
-uses ufmUserList, ufmTrainingDay, ufmProgramSelect, ufmTrainingTypeList;
+uses ufmUserList, ufmTrainingDay, ufmProgramSelect, ufmTrainingTypeList,
+  uSettings, uDMUsers;
 
 
 procedure TfmMain.BindCellByDate(BeginningDate: TDateTime);
@@ -86,7 +87,18 @@ end;
 
 procedure TfmMain.FormCreate(Sender: TObject);
 begin
-  BindCellByDate(Date);
+  if fmUserList=nil then
+    fmUserList:=TfmUserList.Create(fmMain);
+
+  if GlobalOptions.IsRememberLastUser=false then
+    fmUserList.ShowModal
+  else
+    begin
+      dmUsers.SelectUser(GlobalOptions.LastUserID);
+      fmMain.statusBarMain.Panels.Items[0].Text:='Пользователь: '+CurrentUser.UserDBFields.Name;
+    end;
+
+   GlobalOptions.LastUserID:=CurrentUser.UserDBFields.Id;
 end;
 
 procedure TfmMain.FormShow(Sender: TObject);
@@ -112,7 +124,7 @@ procedure TfmMain.NChangeUserClick(Sender: TObject);
 begin
   if fmUserList=nil then
     fmUserList:=TfmUserList.Create(fmMain);
-  fmUserList.Show;
+  fmUserList.ShowModal;
 end;
 
 procedure TfmMain.NMainExitClick(Sender: TObject);

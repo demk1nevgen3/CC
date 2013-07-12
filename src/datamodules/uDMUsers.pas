@@ -18,9 +18,8 @@ type
     qSelectAllsystem_age: TDateTimeField;
     qDeleteUser: TADQuery;
     qCheckUser: TADQuery;
+    qSelectUserByID: TADQuery;
     procedure qSelectAllCalcFields(DataSet: TDataSet);
-    procedure qSelectAllsystem_ageGetText(Sender: TField; var Text: string;
-      DisplayText: Boolean);
   private
 
   public
@@ -28,7 +27,7 @@ type
     procedure AddUser(UserDBFields:TUserDBFieldRec);
     procedure DeleteUserByID(ID:Integer);
     function isNotExistUser(Name:String):boolean;
-    procedure SelectUser;
+    procedure SelectUser(ID:Integer);
   end;
 
 var
@@ -38,7 +37,7 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses uDMMain, uAdditionalUtils;
+uses uDMMain, uAdditionalUtils, ufmAddUser, ufmMain;
 
 {$R *.dfm}
 
@@ -91,24 +90,24 @@ begin
   DataSet.FieldByName('system_age').AsDateTime:= DaySpan(Now, DataSet.FieldByName('join_time').AsDateTime);
 end;
 
-procedure TdmUsers.qSelectAllsystem_ageGetText(Sender: TField; var Text: string;
-  DisplayText: Boolean);
-begin
- // Text:=FormatDateBetween(Sender.AsDateTime);
-end;
-
-procedure TdmUsers.SelectUser;
+procedure TdmUsers.SelectUser(ID:Integer);
 var
   UserDBFieldRec:TUserDBFieldRec;
 begin
- // UserDBFieldRec.Id:=dbgUsers.DataSource.DataSet.FieldByName('id').AsInteger;
- // UserDBFieldRec.Description:=dbgUsers.DataSource.DataSet.FieldByName('description').AsString;
- // UserDBFieldRec.Name:=dbgUsers.DataSource.DataSet.FieldByName('name').AsString;
- // UserDBFieldRec.JoinTime:=dbgUsers.DataSource.DataSet.FieldByName('join_time').AsDateTime;
- // FreeAndNil(CurrentUser);
- // CurrentUser:=TUser.Create(UserDBFieldRec);
- // fmMain.statusBarMain.Panels.Items[0].Text:='Пользователь: '+CurrentUser.UserDBFields.Name;
- // Close;
+   with qSelectUserByID do
+   begin
+     Close;
+     ParamByName('id').AsInteger:=ID;
+     Open;
+
+     UserDBFieldRec.Id:=FieldByName('id').AsInteger;
+     UserDBFieldRec.Description:=FieldByName('description').AsString;
+     UserDBFieldRec.Name:=FieldByName('name').AsString;
+     UserDBFieldRec.JoinTime:=FieldByName('join_time').AsDateTime;
+     FreeAndNil(CurrentUser);
+     CurrentUser:=TUser.Create(UserDBFieldRec);
+
+   end;
 end;
 
 end.
