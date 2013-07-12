@@ -78,6 +78,14 @@ object fmTrainingTypeList: TfmTrainingTypeList
       TabOrder = 2
       OnClick = btnDeleteClick
     end
+    object btnSelect: TBitBtn
+      Left = 200
+      Top = 6
+      Width = 75
+      Height = 25
+      Caption = #1042#1099#1073#1088#1072#1090#1100
+      TabOrder = 3
+    end
   end
   object dsTrainingType: TDataSource
     DataSet = dmTrainingType.qSelectAll

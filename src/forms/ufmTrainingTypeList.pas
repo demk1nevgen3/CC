@@ -17,12 +17,14 @@ type
     gbTrainingTable: TGroupBox;
     dbgTrainingType: TDBGrid;
     dsTrainingType: TDataSource;
+    btnSelect: TBitBtn;
     procedure FormShow(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
   private
     fLaunchType:Integer; //1 - просто добавить    2 - Окно заполнения тренировочного плана
 
+    procedure Init;
     procedure ViewTrainigTypeList;
     procedure AddTrainingType;
     Procedure DeleteTrainingType;
@@ -64,6 +66,7 @@ constructor TfmTrainingTypeList.Create(Owner: TComponent; LaunchType: Integer);
 begin
   inherited Create(Owner);
   fLaunchType:=LaunchType;
+  Init;
 end;
 
 procedure TfmTrainingTypeList.DeleteTrainingType;
@@ -75,6 +78,19 @@ end;
 procedure TfmTrainingTypeList.FormShow(Sender: TObject);
 begin
   ViewTrainigTypeList;
+end;
+
+procedure TfmTrainingTypeList.Init;
+begin
+  if fLaunchType=1 then
+  begin
+    btnSelect.Visible:=False;
+  end;
+
+  if fLaunchType=2 then
+  begin
+    btnSelect.Visible:=True;
+  end;
 end;
 
 procedure TfmTrainingTypeList.ViewTrainigTypeList;

@@ -81,7 +81,9 @@ procedure TfmMain.btnOpenTrainingTypeSelectClick(Sender: TObject);
 begin
   if fmTrainingTypeList=nil then
     fmTrainingTypeList:=TfmTrainingTypeList.Create(fmMain,1);
-  fmTrainingTypeList.Show;
+  fmTrainingTypeList.ShowModal;
+
+  FreeAndNil(fmTrainingTypeList);
 end;
 
 procedure TfmMain.FormShow(Sender: TObject);

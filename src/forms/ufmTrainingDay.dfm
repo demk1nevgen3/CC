@@ -48,6 +48,19 @@ object fmTrainingDay: TfmTrainingDay
         Align = alLeft
         Caption = #1047#1072#1087#1083#1072#1085#1080#1088#1086#1074#1072#1085#1085#1099#1077' '#1091#1087#1088#1072#1078#1085#1077#1085#1080#1103
         TabOrder = 0
+        object DBGrid1: TDBGrid
+          Left = 2
+          Top = 15
+          Width = 363
+          Height = 228
+          Align = alClient
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+        end
       end
       object GroupBox2: TGroupBox
         Left = 369
@@ -59,6 +72,19 @@ object fmTrainingDay: TfmTrainingDay
         TabOrder = 1
         ExplicitLeft = 240
         ExplicitWidth = 482
+        object DBGrid2: TDBGrid
+          Left = 2
+          Top = 15
+          Width = 349
+          Height = 228
+          Align = alClient
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+        end
       end
     end
   end
@@ -98,6 +124,23 @@ object fmTrainingDay: TfmTrainingDay
       ExplicitLeft = 232
       ExplicitTop = 224
       ExplicitWidth = 185
+      object btnAddAT: TBitBtn
+        Left = 16
+        Top = 6
+        Width = 75
+        Height = 25
+        Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+        TabOrder = 0
+        OnClick = btnAddATClick
+      end
+      object btnDelete: TBitBtn
+        Left = 120
+        Top = 6
+        Width = 75
+        Height = 25
+        Caption = #1059#1076#1072#1083#1080#1090#1100
+        TabOrder = 1
+      end
     end
     object gbAdditTraining: TGroupBox
       Left = 1
@@ -119,6 +162,19 @@ object fmTrainingDay: TfmTrainingDay
         Align = alLeft
         Caption = #1047#1072#1087#1083#1072#1085#1080#1088#1086#1074#1072#1085#1085#1099#1077' '#1091#1087#1088#1072#1078#1085#1077#1085#1080#1103
         TabOrder = 0
+        object DBGrid3: TDBGrid
+          Left = 2
+          Top = 15
+          Width = 363
+          Height = 226
+          Align = alClient
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+        end
       end
       object GroupBox4: TGroupBox
         Left = 369
@@ -128,10 +184,21 @@ object fmTrainingDay: TfmTrainingDay
         Align = alClient
         Caption = #1042#1099#1087#1086#1083#1085#1077#1085#1085#1099#1077' '#1091#1087#1088#1072#1078#1085#1077#1085#1080#1103
         TabOrder = 1
-        ExplicitLeft = 392
-        ExplicitTop = 120
-        ExplicitWidth = 185
-        ExplicitHeight = 105
+        ExplicitLeft = 375
+        ExplicitTop = 11
+        object DBGrid4: TDBGrid
+          Left = 2
+          Top = 15
+          Width = 349
+          Height = 226
+          Align = alClient
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+        end
       end
     end
   end
