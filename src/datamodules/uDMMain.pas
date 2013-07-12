@@ -31,7 +31,7 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses uConst, ufmMain, uSettings, ufmUserList, uDMUsers;
+uses uConst, ufmMain, uSettings, ufmUserList, uDMUsers, uDMTrainingType;
 
 {$R *.dfm}
 
@@ -46,20 +46,10 @@ begin
   if ADConnectionMain.Connected then
   begin
     Application.CreateForm(TdmUsers, dmUsers);
+    Application.CreateForm(TdmTrainingType, dmTrainingType);
     Application.CreateForm(TfmMain, fmMain);
 
   end;
-      {
-      if GlobalOptions.IsRememberLastUser then
-          begin
-            Application.CreateForm(TfmMain, fmMain)
-          end
-          else
-          begin
-           Application.CreateForm(TfmMain, fmMain);
-           Application.CreateForm(TfmUserList, fmUserList);
-          end;
-    }
 end;
 
 procedure TdmMain.CreateSchema;

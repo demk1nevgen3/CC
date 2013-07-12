@@ -13,6 +13,8 @@ type
     pMain: TPanel;
     dbgProgram: TDBGrid;
     btnAdd: TBitBtn;
+    btnSelect: TBitBtn;
+    btnDelete: TBitBtn;
   private
     { Private declarations }
   public

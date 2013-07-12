@@ -55,7 +55,7 @@ implementation
 {$R *.dfm}
 
 uses ufmUserList, ufmTrainingDay, ufmProgramSelect, ufmTrainingTypeList,
-  uSettings, uDMUsers;
+  uSettings, uDMUsers, uAdditionalUtils;
 
 
 procedure TfmMain.BindCellByDate(BeginningDate: TDateTime);
@@ -80,7 +80,7 @@ end;
 procedure TfmMain.btnOpenTrainingTypeSelectClick(Sender: TObject);
 begin
   if fmTrainingTypeList=nil then
-    fmTrainingTypeList:=TfmTrainingTypeList.Create(fmMain);
+    fmTrainingTypeList:=TfmTrainingTypeList.Create(fmMain,1);
   fmTrainingTypeList.Show;
 end;
 
@@ -97,8 +97,7 @@ begin
       fmMain.statusBarMain.Panels.Items[0].Text:='Пользователь: '+CurrentUser.UserDBFields.Name;
     end;
 
-   GlobalOptions.LastUserID:=CurrentUser.UserDBFields.Id;
-
+  GlobalOptions.LastUserID:=CurrentUser.UserDBFields.Id;
   BindCellByDate(Date);
 end;
 
@@ -129,12 +128,17 @@ begin
 end;
 
 procedure TfmMain.stringGridCalendarDblClick(Sender: TObject);
+var
+  Year, Month, Day: Word;
 begin
   if fmTrainingDay=nil then
     fmTrainingDay:=TfmTrainingDay.Create(fmMain);
   fmTrainingDay.Show;
 
-  fmTrainingDay.Caption:=IntToStr(stringGridCalendar.Col)+''+IntToStr(stringGridCalendar.Row)
+   DecodeDate(GetDateByCell(stringGridCalendar.Col,stringGridCalendar.Row), Year, Month, Day);
+
+  fmTrainingDay.Caption:=IntToStr(Day)+' '+GetRusssianMonthName(Month);
+
 end;
 
 procedure TfmMain.stringGridCalendarDrawCell(Sender: TObject; ACol,
@@ -142,23 +146,7 @@ procedure TfmMain.stringGridCalendarDrawCell(Sender: TObject; ACol,
 var
   Year, Month, Day: Word;
 
-  function GetRusssianMonthName(Number:Integer):String;
-  begin
-    case Number of
-      1:Result:='Января';
-      2:Result:='Февраля';
-      3:Result:='Марта';
-      4:Result:='Апреля';
-      5:Result:='Мая';
-      6:Result:='Июня';
-      7:Result:='Июля';
-      8:Result:='Августа';
-      9:Result:='Сентября';
-      10:Result:='Октября';
-      11:Result:='Ноября';
-      12:Result:='Декабря';
-    end;
-  end;
+
 
 begin
   with stringGridCalendar do

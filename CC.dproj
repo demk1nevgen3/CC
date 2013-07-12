@@ -76,6 +76,9 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+        <ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+        <BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_ExeOutput>C:\NEW_WORKSPACE\GITHUB\CC\bin</DCC_ExeOutput>
@@ -139,10 +142,15 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\datamodules\uDMTrainingType.pas">
-            <Form>DataModule1</Form>
+            <Form>dmTrainingType</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="src\forms\ufmAddTrainingType.pas">
+            <Form>fmAddTrainingType</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <None Include="Profiling\AQtimeModule1.aqt"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

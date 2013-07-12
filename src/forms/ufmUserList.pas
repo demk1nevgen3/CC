@@ -96,11 +96,8 @@ end;
 procedure TfmUserList.FormShow(Sender: TObject);
 begin
   ViewUserList;
-
   if CurrentUser<>nil then
-  begin
     dbgUsers.DataSource.DataSet.Locate('id',GlobalOptions.LastUserID,[]);
-  end;
 end;
 
 procedure TfmUserList.SelectUser(ID:Integer);

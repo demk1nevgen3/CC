@@ -2,6 +2,7 @@ unit uConst;
 
 interface
 
+
 const
   {Названия папок и файлов на жестком диске}
 
