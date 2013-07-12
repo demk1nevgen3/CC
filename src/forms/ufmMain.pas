@@ -30,7 +30,6 @@ type
     procedure btnOpenProgramSelectClick(Sender: TObject);
     procedure stringGridCalendarDrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnOpenTrainingTypeSelectClick(Sender: TObject);
   private
@@ -85,7 +84,7 @@ begin
   fmTrainingTypeList.Show;
 end;
 
-procedure TfmMain.FormCreate(Sender: TObject);
+procedure TfmMain.FormShow(Sender: TObject);
 begin
   if fmUserList=nil then
     fmUserList:=TfmUserList.Create(fmMain);
@@ -99,10 +98,7 @@ begin
     end;
 
    GlobalOptions.LastUserID:=CurrentUser.UserDBFields.Id;
-end;
 
-procedure TfmMain.FormShow(Sender: TObject);
-begin
   BindCellByDate(Date);
 end;
 

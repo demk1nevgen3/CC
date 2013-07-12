@@ -11,7 +11,6 @@ object fmMain: TfmMain
   Font.Style = []
   Menu = mainMenu
   OldCreateOrder = False
-  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13

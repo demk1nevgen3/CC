@@ -99,13 +99,14 @@ begin
 
   if CurrentUser<>nil then
   begin
-
+    dbgUsers.DataSource.DataSet.Locate('id',GlobalOptions.LastUserID,[]);
   end;
 end;
 
 procedure TfmUserList.SelectUser(ID:Integer);
 begin
   dmUsers.SelectUser(ID);
+  GlobalOptions.LastUserID:=ID;
   fmMain.statusBarMain.Panels.Items[0].Text:='Пользователь: '+CurrentUser.UserDBFields.Name;
   Close;
 end;
