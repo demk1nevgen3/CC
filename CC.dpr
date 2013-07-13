@@ -17,7 +17,8 @@ uses
   uAdditionalUtils in 'src\units\uAdditionalUtils.pas',
   ufmTrainingTypeList in 'src\forms\ufmTrainingTypeList.pas' {fmTrainingTypeList},
   uDMTrainingType in 'src\datamodules\uDMTrainingType.pas' {dmTrainingType: TDataModule},
-  ufmAddTrainingType in 'src\forms\ufmAddTrainingType.pas' {fmAddTrainingType};
+  ufmAddTrainingType in 'src\forms\ufmAddTrainingType.pas' {fmAddTrainingType},
+  uDMTrainingDay in 'src\datamodules\uDMTrainingDay.pas' {DataModule1: TDataModule};
 
 {$R *.res}
 
@@ -25,5 +26,6 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TdmMain, dmMain);
+  Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
 end.

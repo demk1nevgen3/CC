@@ -81,8 +81,8 @@
         <BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_ExeOutput>C:\NEW_WORKSPACE\GITHUB\CC\bin</DCC_ExeOutput>
-        <DCC_DcuOutput>C:\NEW_WORKSPACE\GITHUB\CC\dcu</DCC_DcuOutput>
+        <DCC_ExeOutput>C:\workspace\CC_github\CC\bin</DCC_ExeOutput>
+        <DCC_DcuOutput>C:\workspace\CC_github\CC\dcu</DCC_DcuOutput>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
@@ -149,6 +149,11 @@
         <DCCReference Include="src\forms\ufmAddTrainingType.pas">
             <Form>fmAddTrainingType</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\datamodules\uDMTrainingDay.pas">
+            <Form>DataModule1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <None Include="Profiling\AQtimeModule1.aqt"/>
         <BuildConfiguration Include="Release">

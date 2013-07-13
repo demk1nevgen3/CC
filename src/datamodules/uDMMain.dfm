@@ -5,11 +5,7 @@ object dmMain: TdmMain
   Width = 204
   object ADConnectionMain: TADConnection
     Params.Strings = (
-      
-        'Database=C:\NEW_WORKSPACE\GITHUB\CC\bin\userdata\userdatastorage' +
-        '.db'
       'DriverID=SQLite')
-    LoginPrompt = True
     Left = 32
     Top = 16
   end

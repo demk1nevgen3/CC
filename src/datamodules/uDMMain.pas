@@ -48,7 +48,6 @@ begin
     Application.CreateForm(TdmUsers, dmUsers);
     Application.CreateForm(TdmTrainingType, dmTrainingType);
     Application.CreateForm(TfmMain, fmMain);
-
   end;
 end;
 
